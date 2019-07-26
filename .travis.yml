@@ -10,11 +10,6 @@ cache:
   directories:
     - node_modules
 
-branches:
-  only:
-    - master
-    - dev
-
 install:
   - yarn
 
