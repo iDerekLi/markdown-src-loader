@@ -12,7 +12,8 @@ cache:
 
 branches:
   only:
-  - master
+    - master
+    - dev
 
 install:
   - yarn
@@ -20,7 +21,8 @@ install:
 script:
   - yarn precommit
 
-before_deploy: echo "Starting NPM publish."
+before_deploy:
+  - echo "Starting NPM publish."
 
 deploy:
   provider: npm
@@ -32,6 +34,8 @@ deploy:
   on:
     tags: true
 
-after_deploy: echo "NPM publish completed."
+after_deploy:
+  - echo "NPM publish completed."
 
-after_script: echo "Done."
+after_script:
+  - echo "Done."
