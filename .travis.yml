@@ -1,0 +1,41 @@
+language: node_js
+
+node_js:
+  - '10'
+
+sudo: false
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+branches:
+  only:
+    - master
+    - dev
+
+install:
+  - yarn
+
+script:
+  - yarn precommit
+
+before_deploy:
+  - echo "Starting NPM publish."
+
+deploy:
+  provider: npm
+  email:
+    secure: GjISCFKewsRCsj6+OJsMEXSx5EtKF5RgLp5HS2b2k8OdSLdoLaDw9hVDLsNWnyUEJfnNUHlclJQDjSLn8qFv/FEUFM2xRWDMDRMTUWfw82otC0LMEt3HNQhbUYuBC6X0MWL7ZRb9v50qKv72Jj5SUrqXANXqWaw2W3h+HZMPyC+zYjYD9Hv43lFRx1F996S9rCuuKLfuWwU3IiG2MYVRno8c0sHFq0dSiyVoG55x8oF7+oTC1djtbS3jCDKRTPQpQO+VPhgBKED6mTz5XC4sRMbbfui/scTcfhiXaaTQqpopXH6xKnz2Eg5qutiISgKV5D5pHBfBIlLwkbwiL7oUBjg2Y/HUIrUf04udjYkw/cqGrsIB/Vv3T2V+cMS3UABUy2V8XfEPJqU13MrhANeu0KE6NTHqjn+hUCmGUKOjKf6KA9Z4xTXbsmlMoRt0lU5vcELj3w+3FiZGhr6XH+b8iQUs5tX48vHnXQkAy5iVE8QWH9upodJgyWLZanLQmhO6Ud87i1Q9cDT78t+QSAQDyCREUrjJp7Mgle6W4cXN/ePyPts9dVy8LYIvUeZywLGTpNZl92rncSU4rWlMIo62zS2aohc/sLlu00PRfTIm2lzDaG2MNxbYw4HiEI6ADPMV11OxZiHW+gRSCPTD2V5poQy3w2gJhg54XqO+xAFZkCo=
+  api_key:
+    secure: r19CtFXcfAKZHGgi7aa3JC1RkhHo3XU0E1uYcizvaNwrPvvQil6Dw8SaFdnK1V7jOCGgWfH42eTqdpklNMIpSu03hHINxw3ARDaML0kGGIk8PUHCdnqXByKmqN39lj8mcVJXZipqpVOpuoyvcDF4nM6aa2ZUyfeJH2WmzkXGgZesKkZUzpt2gyzlNLdb4KIsxqsmLsGU0+VGn6PSy2MGsFlraXTU0UX1x1lAMUYsKqep2x5R66TNijoICW+CvHFe09l0DRFOAubRyJFRaeP7oZYfGgrQklJw2FKaP73f2NTQsS+IJ+3je7xA8KwisvRAcx6mBAa6ZeoCXVcAVKEHPN6ofvB97G9SfTgF5IomqbxFrGQVd+zujoAK1mwXvP1rX8SV0gJuzyAtIrcJvCN6wbQ7PKubhpZ+6MKc+CkiEuxI8O9wxM2rg8WtJu7ftLdYRvUe8AAw5ZRVJMXFfCPIRzRPDxC90nWxTsRJusmkzAUeHRRDaHW7fN6HfOLciaI0j6/b3Kp1iOxrtv6rmy6HknXEeUoz+pR4ELVlmS7FuOTu74fM4ZOSIKF6bwzQyOG7Y5uwcF4IOqjNKb7I4lKAlT8hKtHE+TbWuzjfYoHfio9Bhx6riGZ5uin0Q2OyQ3hq+oeORs10LEJBv/QxX5nRIgEwAPlWuehmCYeqVlwhoaA=
+  skip_cleanup: true
+  on:
+    tags: true
+
+after_deploy:
+  - echo "NPM publish completed."
+
+after_script:
+  - echo "Done."
