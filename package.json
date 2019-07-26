@@ -1,0 +1,50 @@
+{
+  "name": "markdown-src-loader",
+  "version": "0.1.0",
+  "description": "A loader for webpack that lets you import files in Markdow format.",
+  "main": "src/markdown-src-loader.js",
+  "files": [
+    "src",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "lint": "eslint src",
+    "test": "jest test",
+    "precommit": "npm run lint && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iDerekLi/markdown-src-loader.git"
+  },
+  "keywords": [
+    "markdown",
+    "webpack",
+    "loader"
+  ],
+  "author": "Derek Li",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iDerekLi/markdown-src-loader/issues"
+  },
+  "homepage": "https://github.com/iDerekLi/markdown-src-loader#readme",
+  "dependencies": {
+    "loader-utils": "^1.2.3",
+    "schema-utils": "^2.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-eslint": "^10.0.2",
+    "babel-jest": "^24.8.0",
+    "eslint": "^5.15.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
+    "markdown-it": "^9.0.1",
+    "marked": "^0.7.0",
+    "prettier": "^1.18.2",
+    "webpack": "^4.36.1"
+  }
+}
